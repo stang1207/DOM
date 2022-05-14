@@ -1,5 +1,2 @@
 # DOM Review
-
-## Description
-
-    An exercise that was created for students to reviewing DOM
+    An exercise that was created for students to review and practice DOM manipulation
