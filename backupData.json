@@ -1,0 +1,51 @@
+[
+  {
+    "id": 1,
+    "name": "Rick Sanchez",
+    "status": "Alive",
+    "species": "Human",
+    "image": "https://rickandmortyapi.com/api/character/avatar/1.jpeg"
+  },
+  {
+    "id": 44,
+    "name": "Body Guard Morty",
+    "status": "Dead",
+    "species": "Human",
+    "image": "https://rickandmortyapi.com/api/character/avatar/44.jpeg"
+  },
+  {
+    "id": 324,
+    "name": "Sleepy Gary",
+    "status": "Dead",
+    "species": "Alien",
+    "image": "https://rickandmortyapi.com/api/character/avatar/324.jpeg"
+  },
+  {
+    "id": 108,
+    "name": "Dr. Xenon Bloom",
+    "status": "Dead",
+    "species": "Humanoid",
+    "image": "https://rickandmortyapi.com/api/character/avatar/108.jpeg"
+  },
+  {
+    "id": 118,
+    "name": "Evil Morty",
+    "status": "Alive",
+    "species": "Human",
+    "image": "https://rickandmortyapi.com/api/character/avatar/118.jpeg"
+  },
+  {
+    "id": 329,
+    "name": "Snuffles",
+    "status": "Alive",
+    "species": "Animal",
+    "image": "https://rickandmortyapi.com/api/character/avatar/329.jpeg"
+  },
+  {
+    "id": 6,
+    "name": "Scary Terry",
+    "status": "Alive",
+    "species": "Mythological Creature",
+    "image": "https://rickandmortyapi.com/api/character/avatar/306.jpeg"
+  }
+]

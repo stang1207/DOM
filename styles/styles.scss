@@ -1,0 +1,183 @@
+@use './partials/base';
+@use './partials' as *;
+
+.rick-and-morty {
+  &__wrapper {
+    min-height: 100vh;
+    @include container;
+    padding-block: 5rem;
+  }
+  &__cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    transition: all 0.5s;
+    gap: 2.5rem;
+  }
+}
+
+.character-card {
+  //Card layout and base styles
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  width: clamp(20.5rem, calc(33.3% - 2.5rem), 25rem);
+  min-height: 10rem;
+  background-color: $color-background-secondary;
+  border: 3px solid $color-primary-heading;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  @include respond-to('md') {
+    flex-direction: row;
+  }
+
+  //Hover and click animations
+  box-shadow: 5px 5px 1rem rgba($color-primary-heading, 0.4);
+  transition: all 0.3s;
+  &:hover {
+    animation: shaking 0.8s ease-in;
+    box-shadow: 6px 6px 3rem rgba($color-primary-heading, 0.6);
+    z-index: 1;
+    transform: scale(1.05);
+  }
+  &:active {
+    transform: scale(0.9);
+    box-shadow: 3px 3px 1rem rgba($color-primary-heading, 1);
+  }
+
+  //Card image
+  &__img-box {
+    width: 100%;
+    height: 65%;
+    @include respond-to('md') {
+      width: 40%;
+      height: 100%;
+    }
+  }
+  &__img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  //Card content
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 1rem;
+    border-top: 3px solid $color-primary-heading;
+
+    // Card content - height and width on different sizes
+    height: 35%;
+    width: 100%;
+    @include respond-to('md') {
+      height: 100%;
+      width: 60%;
+      border-top: none;
+      border-left: 3px solid $color-primary-heading;
+    }
+  }
+
+  // Card content - character name and status
+  &__name {
+    color: $color-secondary-heading;
+    white-space: nowrap;
+  }
+  &__status {
+    color: $color-body-text-secondary;
+  }
+
+  // Card content - delete character button
+  &__delete {
+    cursor: pointer;
+    display: inline-block;
+    background: rgb(203, 81, 81);
+    font-weight: 600;
+    font-size: 0.75rem;
+    color: white;
+    border: none;
+    border-radius: 2.5rem;
+    padding: 0.5rem 1rem;
+    align-self: center;
+    width: 50%;
+    @include respond-to('md') {
+      margin-top: 0.5rem;
+    }
+  }
+}
+
+.review {
+  // Review Section layout and base styles
+  background-color: $color-body-text;
+  &__wrapper {
+    padding-block: 2rem;
+    text-align: center;
+    @include container;
+    @include respond-to('md') {
+      padding-block: 3rem;
+      text-align: start;
+    }
+  }
+
+  // Review Section - heading
+  &__title {
+    color: $color-primary-heading;
+    text-align: center;
+  }
+
+  // Review Section - review list
+  &__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    @include respond-to('md') {
+      gap: 0.75rem;
+      align-items: flex-start;
+      padding-block: 1.5rem;
+    }
+  }
+}
+
+.review-topic {
+  // Review Topic - layout and base styles
+  max-width: 30ch;
+  @include respond-to('md') {
+    max-width: 60ch;
+  }
+
+  // Review Topic - heading
+  &__title {
+    color: $color-primary-heading;
+    font-weight: 300;
+    font-size: 1.35rem;
+    font-size: clamp(
+      1.35rem,
+      1.1740000000000002rem + 0.6399999999999999vw,
+      1.75rem
+    );
+    margin-block: 1rem;
+  }
+
+  // Review Topic - sub-list
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    @include respond-to('md') {
+      margin-left: 2.5rem;
+    }
+  }
+
+  &__text {
+    color: $color-body-text-secondary;
+    font-weight: 500;
+    &--warning {
+      font-size: 0.7rem;
+      color: red;
+    }
+  }
+}

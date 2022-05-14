@@ -1,0 +1,59 @@
+@use './abstracts' as *;
+
+//Global css reset rules
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: -apple-system, 'BlinkMacSystemFont', 'Segoe UI', 'Roboto',
+    'Helvetica', 'Arial', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol';
+  background: $color-background;
+}
+
+// Typograhpy (Don't use font-size:clamp for you projects as it is not fully supported by all the browsers)
+h1 {
+  font-weight: 300;
+  font-size: 2.5rem;
+  font-size: clamp(2.5rem, 1.3636363636363638rem + 4.04040404040404vw, 5rem);
+}
+
+h2 {
+  font-weight: 400;
+  font-size: 1.5rem;
+  font-size: clamp(
+    1.5rem,
+    1.0454545454545454rem + 1.6161616161616161vw,
+    2.5rem
+  );
+}
+
+h3 {
+  font-weight: 300;
+  font-size: 0.9rem;
+  font-size: clamp(
+    0.9rem,
+    0.8090909090909091rem + 0.3232323232323233vw,
+    1.1rem
+  );
+}
+
+p {
+  color: $color-body-text;
+  font-size: 0.8rem;
+  font-size: clamp(
+    0.75rem,
+    0.6818181818181818rem + 0.24242424242424246vw,
+    0.9rem
+  );
+}
+
+ul {
+  list-style: none;
+}

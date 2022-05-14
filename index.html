@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Review</title>
+    <link rel="stylesheet" href="styles/styles.css" />
+    <script src="./script.js" defer></script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__wrapper">
+        <h1 class="header__title">DOM Review</h1>
+      </div>
+    </header>
+    <main>
+      <section class="rick-and-morty">
+        <div class="rick-and-morty__wrapper">
+          <ul class="rick-and-morty__cards"></ul>
+        </div>
+      </section>
+      <section class="review">
+        <div class="review__wrapper">
+          <h2 class="review__title">DOM Cheatsheet</h2>
+          <ul class="review__list">
+            <li class="review-topic">
+              <h3 class="review-topic__title">Selecting elements in the DOM</h3>
+              <ul class="review-topic__list">
+                <li class="review-topic__item">
+                  <p class="review-topic__text">
+                    querySelector - it returns the first element that matches
+                    the specified selector (id, class, element).
+                  </p>
+                </li>
+                <li class="review-topic__item">
+                  <p class="review-topic__text">
+                    querySelectorAll - it returns all the elements that match
+                    the specified selector.
+                  </p>
+                </li>
+                <li class="review-topic__item">
+                  <p class="review-topic__text">
+                    getElementsById - it returns the element with matching id.
+                  </p>
+                </li>
+                <li class="review-topic__item">
+                  <p class="review-topic__text">
+                    getElementsByClassName - it returns all the elements with
+                    matching class name.
+                  </p>
+                </li>
+              </ul>
+            </li>
+            <li class="review-topic">
+              <h3 class="review-topic__title">Creating elements in the DOM</h3>
+              <ul class="review-topic__list">
+                <li class="review-topic__item">
+                  <p class="review-topic__text">
+                    document.createElement(tagName) - it creates the HTML
+                    element specified by tagName
+                  </p>
+                </li>
+              </ul>
+            </li>
+            <li class="review-topic">
+              <h3 class="review-topic__title">
+                Adding elements and removing elements
+              </h3>
+              <ul class="review-topic__list">
+                <li class="review-topic__item">
+                  <p class="review-topic__text">
+                    Element.appendChild(nodeElement) - it appends an element as
+                    the last child of a specified element.
+                  </p>
+                </li>
+                <li class="review-topic__item">
+                  <p class="review-topic__text">
+                    Element.removeChild(nodeElement) - it removes a child
+                    element from the DOM.
+                  </p>
+                </li>
+              </ul>
+            </li>
+            <li class="review-topic">
+              <h3 class="review-topic__title">
+                Modifying an element in the DOM
+              </h3>
+              <ul class="review-topic__list">
+                <li class="review-topic__item">
+                  <p class="review-topic__text">
+                    Element.setAttribute(name, value) - it sets an attribute on
+                    a specified element (class, src, href, alt, etc).
+                  </p>
+                </li>
+                <li class="review-topic__item">
+                  <p class="review-topic__text">
+                    Element.textContent - it could be used to modify the text
+                    content of an element.
+                  </p>
+                </li>
+                <li class="review-topic__item">
+                  <p class="review-topic__text">
+                    Element.classList.add(className) - it adds a class to an
+                    element.
+                  </p>
+                </li>
+                <li class="review-topic__item">
+                  <p class="review-topic__text">
+                    Element.classList.remove(className) - it removes a class to
+                    an element.
+                  </p>
+                </li>
+                <li class="review-topic__item">
+                  <p class="review-topic__text">
+                    Element.classList.toggle(className) - it toggle a class of
+                    an element (add a class if the element doesn't have that
+                    class or remove a class if the element already has that
+                    class).
+                  </p>
+                </li>
+                <li class="review-topic__item">
+                  <p class="review-topic__text">
+                    Element.addEventListener(event, callbackFunction) - it
+                    attaches an event handler to an element.
+                  </p>
+                </li>
+                <li class="review-topic__item">
+                  <p class="review-topic__text">
+                    Element.innerHTML - it gets or sets the HTML markup
+                    contained within an element.
+                    <span class="review-topic__text--warning"
+                      >The use of innerHTML creates a potential security risk
+                      for your website. Malicious users can use cross-site
+                      scripting (XSS) to insert malicious code into the
+                      DOM.</span
+                    >
+                  </p>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

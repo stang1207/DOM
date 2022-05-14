@@ -1,0 +1,39 @@
+@use './abstracts' as *;
+
+.header {
+  // Header background
+  background: $color-body-text;
+  background-size: cover;
+
+  &__wrapper {
+    @include container;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    // Header height
+    min-height: 10vh;
+    @include respond-to('md') {
+      min-height: 10vw;
+    }
+  }
+
+  // Header heading or title
+  &__title {
+    // Base styles
+    padding-block: 1rem;
+    letter-spacing: 0.35rem;
+
+    // Heading linear gradient background
+    display: inline-block;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: cover;
+    background-image: radial-gradient(
+      circle farthest-side at right center,
+      $color-primary-heading 30%,
+      $color-secondary-heading 70%
+    );
+  }
+}
