@@ -61,7 +61,7 @@ let characters = [
  * @param {string} alt - The alt attribute that needs to be added to the element
  * @returns {object} - Returns a node element
  * @description - Creates a node element with the given parameters
- * @todo - We could further improve this function by making it more generic and reusable for other elements.
+ * @todo - We could further improve this function by making it even more generic and reusable for other elements.
  */
 const createNodeEl = (element, className, textContent, src, alt) => {
   const el = document.createElement(element);

@@ -36,7 +36,7 @@
   box-shadow: 5px 5px 1rem rgba($color-primary-heading, 0.4);
   transition: all 0.3s;
   &:hover {
-    animation: shaking 0.8s ease-in;
+    animation: shaking 0.55s ease-in;
     box-shadow: 6px 6px 3rem rgba($color-primary-heading, 0.6);
     z-index: 1;
     transform: scale(1.05);
@@ -131,12 +131,13 @@
   // Review Section - review list
   &__list {
     display: flex;
+    text-align: center;
     flex-direction: column;
     align-items: center;
+
     gap: 0.25rem;
-    @include respond-to('md') {
+    @include respond-to('lg') {
       gap: 0.75rem;
-      align-items: flex-start;
       padding-block: 1.5rem;
     }
   }
@@ -151,7 +152,7 @@
 
   // Review Topic - heading
   &__title {
-    color: $color-primary-heading;
+    color: $color-secondary-heading;
     font-weight: 300;
     font-size: 1.35rem;
     font-size: clamp(
