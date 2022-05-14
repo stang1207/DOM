@@ -1,5 +1,4 @@
-// List of characters that will be used to render the cards on the DOM.
-// We could pretend that this is a database that we are fetching the data from.
+const cardContainerEl = document.querySelector('.rick-and-morty__cards');
 let characters = [
   {
     id: 1,
@@ -52,21 +51,16 @@ let characters = [
   },
 ];
 
-/**
- * createNodeEl
- * @param {string} element - The element to create a node for (i.e. 'div')
- * @param {string} className - The class name to add to the element
- * @param {string} textContent - The text content to add to the element
- * @param {string} src - The src attribute that needs to be added to the element
- * @param {string} alt - The alt attribute that needs to be added to the element
- * @returns {object} - Returns a node element
- * @description - Creates a node element with the given parameters
- * @todo - We could further improve this function by making it even more generic and reusable for other elements.
- */
+const emptyCardContainer = (containerEl) => {
+  containerEl.innerHTML = '';
+  return containerEl;
+};
+
 const createNodeEl = (element, className, textContent, src, alt) => {
   const el = document.createElement(element);
   el.classList.add(className);
   el.textContent = textContent;
+  // If the src or alt attributes are passed in, add them to the element
   if (src) {
     el.setAttribute('src', src);
   }
@@ -76,15 +70,9 @@ const createNodeEl = (element, className, textContent, src, alt) => {
   return el;
 };
 
-/**
- *
- * @param {Object} character - An character object from the characters array
- * @returns {object}  - Returns a node (HTML) element with the character information filled in
- * @description - Creates a card element (HTML / node) using an object that contains the character information and returns it
- */
 const createCharacterCard = (character) => {
   // Create all the character card elements needed using the createNodeEl function
-  const card = createNodeEl('li', 'character-card', null, null, null);
+  const card = createNodeEl('li', 'character-card');
   const cardImgWrapper = createNodeEl('div', 'character-card__img-box');
   const cardImg = createNodeEl(
     'img',
@@ -106,10 +94,10 @@ const createCharacterCard = (character) => {
     'Delete'
   );
 
-  //Add delete button event listener so that it can remove the character from the array
+  //Add delete button event listener so that it can remove the character from the array and DOM later on
   cardDeleteButton.addEventListener('click', () => {
-    const updatedCharacters = removeCharacter(character.id);
-    renderCharacterCards(updatedCharacters);
+    const updatedListOfCharacters = removeCharacter(character.id);
+    renderCharacterCards(updatedListOfCharacters);
   });
 
   // Append all the elements inside the card to the card element itself
@@ -120,35 +108,63 @@ const createCharacterCard = (character) => {
   cardContent.appendChild(cardDeleteButton);
   card.appendChild(cardContent);
 
-  // Finally return the card element to the caller function so that it can be appended to the DOM later on
+  // Finally return the card element
   return card;
 };
 
-/**
- * renderCharacters
- * @param {array} characters - An array of characters that needs to be rendered on the DOM.
- * @returns {undefined} - Returns nothing.
- * @description - Clears the character cards from the DOM and then renders the new character cards using the createCharacterCard function and appends them to the DOM.
- */
+const removeCharacter = (characterId) => {
+  // Use the character id and remove it from the character array
+  characters = characters.filter((character) => character.id !== characterId);
+  return characters;
+};
+
 const renderCharacterCards = (listOfCharacters) => {
-  const cardContainer = document.querySelector('.rick-and-morty__cards');
-  cardContainer.innerHTML = '';
-  return listOfCharacters.forEach((character) => {
+  const cardContainer = emptyCardContainer(cardContainerEl);
+  listOfCharacters.forEach((character) => {
     const charcterCard = createCharacterCard(character);
     cardContainer.appendChild(charcterCard);
   });
 };
 
-/**
- *
- * @param {Number} characterId - The id of the character that needs to be deleted
- * @returns {Array} - Returns the filtered array of characters without the character that was deleted
- * @description - Removes the character from the array and the DOM using the character id as a reference to the character that needs to be deleted from the array and the DOM respectively.
- */
-const removeCharacter = (characterId) => {
-  characters = characters.filter((character) => character.id !== characterId);
-  return characters;
-};
-
-// Render the characters array to the DOM when the page first loads
 renderCharacterCards(characters);
+
+// Documentation for the functions above
+/**
+ * emptyCardContainer()
+ * @param {HTMLElement} containerEl - The card container element
+ * @returns {HTMLElement}
+ * @description This function will empty the card container and return the card container element
+ */
+
+/**
+ * createNodeEl
+ * @param {string} element - The element to create a node for (i.e. 'div')
+ * @param {string} className - The class name to add to the element
+ * @param {string} textContent - The text content to add to the element
+ * @param {string} src - The src attribute that needs to be added to the element
+ * @param {string} alt - The alt attribute that needs to be added to the element
+ * @returns {object} - Returns a node element
+ * @description - Creates a node element with the given parameters
+ * @challenge - Try to make this more generic so that it can be used for any element and any attribute (i.e. href, type, etc.)
+ */
+
+/**
+ * createCharacterCard
+ * @param {Object} character - An character object from the characters array
+ * @returns {object}  - Returns a node (HTML) element with the character information filled in
+ * @description - Creates a card element (HTML / node) using an object that contains the character information
+ */
+
+/**
+ * removeCharacter
+ * @param {number} id - The id of the character to be removed
+ * @returns {undefined} - Returns nothing or undefined
+ * @description - Removes a character from the characters array and the DOM
+ */
+
+/**
+ * renderCharacters
+ * @param {array} characters - An array of characters
+ * @returns {undefined} - Returns nothing or undefined
+ * @description - Renders the characters in the characters array to the DOM
+ */
